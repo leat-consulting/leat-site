@@ -1,0 +1,36 @@
+name: main
+
+# Build the site once, then attest, verify and deploy exactly that build.
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+# Deploy one version at a time, and never cancel a deploy in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: build
+    uses: leat-consulting/platform-workflows/.github/workflows/node-ci.yml@1580c16870f66b71da005ccf146c2eaf8fb91c20 # v1.0.0
+    permissions:
+      contents: read
+    with:
+      artifact-path: dist
+      artifact-name: site
+
+  deploy:
+    name: deploy
+    needs: build
+    uses: leat-consulting/platform-workflows/.github/workflows/pages-deploy.yml@1580c16870f66b71da005ccf146c2eaf8fb91c20 # v1.0.0
+    permissions:
+      contents: read
+      id-token: write # OIDC token for signing and the Pages deployment
+      attestations: write # store the provenance attestation
+      pages: write # deploy to GitHub Pages
+    with:
+      artifact-name: site

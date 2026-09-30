@@ -1,0 +1,35 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib";
+---
+
+<Base
+  title="Platform build"
+  description="Hardened, reusable GitHub Actions workflows, rulesets as code and verified builds, built with your team and handed over for you to own."
+>
+  <h1>Platform build</h1>
+  <p class="lead">
+    A delivery platform your teams call rather than copy: shared workflows that are secure by default and
+    easy to adopt.
+  </p>
+
+  <h2>What we build</h2>
+  <ul class="ticks">
+    <li>Reusable workflows for CI, security scanning, container builds and deployment, versioned and pinned by commit.</li>
+    <li>Build provenance on every artefact, verified before anything is deployed.</li>
+    <li>Branch and tag protection defined as code and checked for drift, so nobody weakens it quietly.</li>
+    <li>OIDC federation to your cloud accounts, with trust scoped to the repository and environment.</li>
+    <li>Automated updates for pinned dependencies, arriving as pull requests your team reviews.</li>
+  </ul>
+
+  <h2>How we work</h2>
+  <p>
+    Everything is built through pull requests in your repositories, so your team reviews each change as
+    it lands. By the end, your engineers have used the platform, changed it and released it themselves.
+    You own all of it, with no licence and no dependency on us.
+  </p>
+  <p>
+    The workflows behind this website are an example. <a href={href("demo/")}>See them on GitHub</a>.
+  </p>
+  <p><a class="button" href={href("contact/")}>Discuss a platform build</a></p>
+</Base>
