@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib";
+---
+
+<Base
+  title="About"
+  description="Leat Consulting is a London-based consultancy that helps engineering teams make software delivery secure without making it slow."
+>
+  <h1>About Leat Consulting</h1>
+  <p class="lead">
+    A London-based consultancy focused on one thing: making software delivery secure without making it
+    slow.
+  </p>
+
+  <h2>Why this matters</h2>
+  <p>
+    A modern pipeline can read your source, hold your cloud credentials and ship to production without a
+    person touching it. Attackers know this. Most teams have hardened their applications far more than the
+    systems that build and deploy them.
+  </p>
+
+  <h2>How we work</h2>
+  <ul class="ticks">
+    <li>We show our own work. Our workflows and the rules that protect them are public.</li>
+    <li>We work through pull requests in your repositories, so your team sees and approves every change.</li>
+    <li>We hand over. You own what we build, and your team can run it without us.</li>
+    <li>We are plain about trade-offs, including when the simpler option is the right one.</li>
+  </ul>
+
+  <p><a class="button" href={href("contact/")}>Get in touch</a></p>
+</Base>

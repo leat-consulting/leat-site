@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import { absolute, href, site } from "../lib";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.name,
+  url: absolute(""),
+  description: site.description,
+  areaServed: site.areaServed.map((name) => ({ "@type": "Place", name })),
+  sameAs: [site.github],
+  knowsAbout: ["CI/CD security", "GitHub Actions", "Software supply chain security", "AI code review"],
+};
+---
+
+<Base title={site.name} description={site.description}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+
+  <h1>Secure delivery platforms for engineering teams</h1>
+  <p class="lead">
+    Your pipeline can build, sign and ship code to production. It deserves the same care as the code
+    itself. We review what you have, build what is missing, and set up AI code review that you own and
+    control.
+  </p>
+  <p><a class="button" href={href("contact/")}>Talk to us</a></p>
+
+  <ul class="cards">
+    <li class="card">
+      <h2><a href={href("architecture-review/")}>Architecture review</a></h2>
+      <p>A fixed-scope review of how code gets from a laptop to production, with findings ranked by risk and a plan to fix them.</p>
+    </li>
+    <li class="card">
+      <h2><a href={href("platform-build/")}>Platform build</a></h2>
+      <p>Reusable, pinned and least-privilege workflows, rulesets as code and verified builds, handed over for your team to run.</p>
+    </li>
+    <li class="card">
+      <h2><a href={href("ai-code-review/")}>AI code review setup</a></h2>
+      <p>Claude reviewing every pull request, with tight permissions, spend limits and a human who stays the reviewer of record.</p>
+    </li>
+  </ul>
+
+  <h2>Built in the open</h2>
+  <p>
+    The workflows we build for clients are the same ones that build and deploy this website. You can
+    read them, the rules that protect them, and every pull request that changed them.
+  </p>
+  <p><a href={href("demo/")}>See the demo repositories</a></p>
+
+  <h2>What we hold to</h2>
+  <ul class="ticks">
+    <li>Every job gets the least permission it needs, and nothing by default.</li>
+    <li>Every third-party action is pinned to a commit, and every build is signed and verified before it runs.</li>
+    <li>No long-lived cloud credentials in CI. Short-lived, narrowly scoped tokens instead.</li>
+    <li>Automation assists. A person approves what reaches production.</li>
+  </ul>
+</Base>

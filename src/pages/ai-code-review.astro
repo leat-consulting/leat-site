@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib";
+---
+
+<Base
+  title="AI code review setup"
+  description="Claude reviewing every pull request in GitHub Actions, with least-privilege permissions, spend limits and guardrails you control."
+>
+  <h1>AI code review setup</h1>
+  <p class="lead">
+    AI review that finds real problems early, runs inside your own GitHub organisation, and cannot change
+    anything it should not.
+  </p>
+
+  <h2>What you get</h2>
+  <ul class="ticks">
+    <li>Claude reviewing each pull request through GitHub Actions, using your own Anthropic account and key.</li>
+    <li>Review rules layered from a shared base and each repository's own conventions, tuned to keep noise low.</li>
+    <li>Findings graded blocking, should-fix or nit, with nits collected into a single comment.</li>
+    <li>Optional fixes on request, limited to the pull request branch and approved by a person each time.</li>
+  </ul>
+
+  <h2>The guardrails</h2>
+  <ul class="ticks">
+    <li>Review is comment-only. It never approves, so a person remains the reviewer of record.</li>
+    <li>Pull requests from forks never reach the model or its secrets.</li>
+    <li>Write access, where used, cannot touch workflow files or protected branches. The platform enforces this, not the prompt.</li>
+    <li>Timeouts, turn limits and a monthly spend limit keep costs predictable.</li>
+  </ul>
+  <p><a class="button" href={href("contact/")}>Discuss AI review</a></p>
+</Base>

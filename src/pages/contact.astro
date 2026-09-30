@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../lib";
+---
+
+<Base
+  title="Contact"
+  description="Book a call with Leat Consulting to discuss an architecture review, a platform build or AI code review."
+>
+  <h1>Contact</h1>
+  {site.bookingUrl ? (
+    <>
+      <p class="lead">Book a short call to talk through what you need.</p>
+      <p><a class="button" href={site.bookingUrl}>Book a call</a></p>
+    </>
+  ) : (
+    <p class="lead">Booking opens shortly. In the meantime, you can follow the work on GitHub.</p>
+  )}
+  {site.email && (
+    <p>Or email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  )}
+  <p><a href={site.github}>github.com/leat-consulting</a></p>
+
+  <h2>Reporting a security issue</h2>
+  <p>
+    Please do not use the booking link or public issues. Report it privately through
+    <a href="https://github.com/leat-consulting/leat-site/security/advisories/new">GitHub's private vulnerability reporting</a>.
+  </p>
+</Base>

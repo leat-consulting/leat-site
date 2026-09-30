@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib";
+---
+
+<Base
+  title="Pricing"
+  description="Every Leat Consulting engagement has a fixed scope and a fixed price, agreed in writing before work starts."
+>
+  <h1>Pricing</h1>
+  <p class="lead">
+    Every engagement has a fixed scope and a fixed price, agreed in writing before any work starts. You
+    know what you will get and what it will cost.
+  </p>
+
+  <ul class="cards">
+    <li class="card">
+      <h2>Architecture review</h2>
+      <p>A review of one delivery pipeline and its cloud access, ending with a written report and a walkthrough.</p>
+      <p><strong>Price on request</strong></p>
+    </li>
+    <li class="card">
+      <h2>Platform build</h2>
+      <p>Shared workflows, protection as code and verified builds, delivered through pull requests in your repositories.</p>
+      <p><strong>Scoped and priced per engagement</strong></p>
+    </li>
+    <li class="card">
+      <h2>AI code review setup</h2>
+      <p>Review, guardrails and tuning across your chosen repositories, with the rules documented for your team.</p>
+      <p><strong>Price on request</strong></p>
+    </li>
+  </ul>
+
+  <p>Model usage is billed by Anthropic to your own account, so you always see and control that cost directly.</p>
+  <p><a class="button" href={href("contact/")}>Ask for a quote</a></p>
+</Base>
