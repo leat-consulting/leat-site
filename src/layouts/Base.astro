@@ -1,0 +1,67 @@
+---
+import Meta from "../components/Meta.astro";
+import { href, nav, site } from "../lib";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  type?: "website" | "article";
+  canonical?: boolean;
+}
+
+const { title, description, type, canonical } = Astro.props;
+const current = Astro.url.pathname;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href={href("favicon.svg")} type="image/svg+xml" />
+    <Meta title={title} description={description} type={type} canonical={canonical} />
+    <link rel="sitemap" href={href("sitemap-index.xml")} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href={href("")}>{site.name}</a>
+        <nav aria-label="Main">
+          <ul>
+            {nav.map((item) => (
+              <li>
+                <a href={href(item.path)} aria-current={current.startsWith(href(item.path)) ? "page" : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>{site.name}. Secure delivery platforms for engineering teams.</p>
+        <p>
+          This site is built and deployed by the workflows it describes.
+          <a href={href("demo/")}>See how</a>.
+        </p>
+        <ul class="footer-links">
+          <li><a href={site.github}>GitHub</a></li>
+          <li><a href={href("articles/")}>Articles</a></li>
+          <li><a href={href("contact/")}>Contact</a></li>
+          <li><a href={href(".well-known/security.txt")}>Security</a></li>
+        </ul>
+        <p class="small">&copy; {year} {site.name}</p>
+      </div>
+    </footer>
+  </body>
+</html>
