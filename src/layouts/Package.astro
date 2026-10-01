@@ -1,0 +1,46 @@
+---
+// Shared layout for the three package pages: the detail on the left and a
+// sticky summary panel on the right on wide screens; one column on phones.
+import Base from "./Base.astro";
+import Icon from "../components/Icon.astro";
+import { href, packages } from "../lib";
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  lead: string;
+  forWho: string;
+}
+
+const { slug, title, description, lead, forWho } = Astro.props;
+const pkg = packages.find((p) => p.path === slug)!;
+const number = packages.indexOf(pkg) + 1;
+---
+
+<Base title={title} description={description}>
+  <section class="band band--hero">
+    <span class="eyebrow">Package {number} of {packages.length}</span>
+    <h1>{title}</h1>
+    <p class="lead">{lead}</p>
+  </section>
+
+  <div class="package">
+    <div class="package-body">
+      <slot />
+    </div>
+    <aside class="summary" aria-label="Summary">
+      <Icon name={pkg.icon} />
+      <h2>{pkg.name}</h2>
+      <dl>
+        <dt>For</dt>
+        <dd>{forWho}</dd>
+        <dt>You receive</dt>
+        <dd>{pkg.receive}</dd>
+        <dt>Price</dt>
+        <dd>Fixed, agreed in writing before work starts</dd>
+      </dl>
+      <a class="button" href={href("contact/")}>Discuss this package</a>
+    </aside>
+  </div>
+</Base>
