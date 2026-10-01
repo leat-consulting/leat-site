@@ -1,0 +1,56 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib";
+---
+
+<Base
+  title="Secure delivery setup"
+  description="Hardened, reusable pipelines, protection rules and short-lived cloud access, set up in your own GitHub organisation and handed over for your team to own."
+>
+  <p class="eyebrow">Package 2</p>
+  <h1>Secure delivery setup</h1>
+  <p class="lead">
+    Pipelines that are safe by default and easy for every team to use, set up in your repositories and
+    handed over. You own all of it, with no licence and no support contract.
+  </p>
+
+  <h2>Who it is for</h2>
+  <ul class="ticks">
+    <li>Teams on GitHub whose pipelines have grown repo by repo, each a little different.</li>
+    <li>Teams that hold long-lived cloud keys in CI and want rid of them.</li>
+    <li>Teams that need to show customers or auditors how their software is built and released.</li>
+  </ul>
+
+  <h2>What is included</h2>
+  <ul class="ticks">
+    <li>Shared, reusable workflows for build, test, security scanning and deployment, which your repositories call instead of copying.</li>
+    <li>Protection rules for your main branches and releases, defined as code, with a check that reports if anyone weakens them.</li>
+    <li>Automatic, reviewed updates for dependencies and pipeline components.</li>
+    <li>Short-lived access from pipelines to AWS, scoped to the repository and environment, replacing stored keys.</li>
+    <li>Signed builds, so you can show exactly where a release came from, where you need it.</li>
+  </ul>
+  <p>
+    Every change arrives as a pull request in your repositories, so your team reviews each piece as it
+    lands. <a href={href("how-we-build/")}>See how we run the same setup ourselves</a>.
+  </p>
+
+  <h2>What you receive</h2>
+  <ul class="ticks">
+    <li>Working pipelines in your repositories, and the rules that protect them.</li>
+    <li>Written documentation of how it fits together and how to change it.</li>
+    <li>A handover session with your engineers, who will already have used and changed it during the work.</li>
+  </ul>
+
+  <h2>What is not included</h2>
+  <ul class="ticks">
+    <li>Running or supporting the pipelines afterwards. Your team owns them from the handover.</li>
+    <li>Changes to your application code.</li>
+    <li>Building new cloud environments or Kubernetes clusters.</li>
+  </ul>
+  <p>
+    If you use our public workflows, later improvements reach you as versioned releases, offered as
+    pull requests that your team chooses whether to merge.
+  </p>
+
+  <p class="cta"><a class="button" href={href("contact/")}>Discuss a setup</a></p>
+</Base>
