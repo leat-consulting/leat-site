@@ -124,11 +124,13 @@ h2 + .lead { margin-top: 0; }
 /* header */
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--header-bg); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--border); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: var(--header-h); }
-.brand { display: inline-flex; align-items: center; gap: var(--s3); color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: -0.015em; font-size: 1.05rem; }
+.brand { display: inline-flex; align-items: center; color: var(--text); text-decoration: none; }
 .brand:hover { color: var(--text); }
-.brand-mark { width: 28px; height: 28px; flex: none; }
-.brand-mark .mark-bg { fill: var(--accent); }
-.brand-mark .mark-l { fill: var(--on-accent); }
+/* Wordmark: a terminal prompt, the name and a resting cursor. Text, so it stays crisp and themed. */
+.wordmark { display: inline-flex; align-items: baseline; font-weight: 750; font-size: 1.6rem; line-height: 1; letter-spacing: -0.055em; }
+.wm-prompt { color: var(--accent); font-weight: 700; margin-right: 0.22em; letter-spacing: 0; }
+.wm-cursor { display: inline-block; width: 0.46em; height: 0.15em; margin-left: 0.14em; background: var(--accent); }
+.footer-about .wordmark { font-size: 1.5rem; }
 .nav-desktop { display: flex; align-items: center; gap: var(--s5); }
 .nav-desktop ul, .nav-menu ul { list-style: none; margin: 0; padding: 0; }
 .nav-desktop ul { display: flex; gap: var(--s1) var(--s5); }
