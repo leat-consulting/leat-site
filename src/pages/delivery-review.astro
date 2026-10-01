@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib";
+---
+
+<Base
+  title="Delivery review"
+  description="A fixed-scope review of how your code reaches production, from source control and CI/CD to AWS access and Terraform, with findings ranked by risk."
+>
+  <p class="eyebrow">Package 1</p>
+  <h1>Delivery review</h1>
+  <p class="lead">
+    Find out where the path from a developer's laptop to production could be abused, and what to fix
+    first. Fixed scope, fixed price, and a clear plan at the end.
+  </p>
+
+  <h2>Who it is for</h2>
+  <ul class="ticks">
+    <li>Engineering leaders who want an outside view before a funding round, an audit or a large customer's security questionnaire.</li>
+    <li>Teams that have grown quickly and are not sure who can change what any more.</li>
+    <li>Teams starting to use AI coding tools and wanting to know what those tools can reach.</li>
+  </ul>
+
+  <h2>What is included</h2>
+  <ul class="ticks">
+    <li>Source control: branch and tag protection, review rules, and who can bypass them.</li>
+    <li>CI/CD: what each pipeline is allowed to do, how secrets are held, and what third-party code it runs.</li>
+    <li>Dependencies and images: how vulnerabilities and leaked secrets are caught, and what actually gets deployed.</li>
+    <li>Cloud access: how pipelines reach AWS (or Azure), long-lived keys, and how tightly access is scoped across accounts.</li>
+    <li>Infrastructure as code: how Terraform changes are planned, reviewed and applied.</li>
+    <li>AI tools in the pipeline: what they can read, write and spend.</li>
+  </ul>
+
+  <h2>What you receive</h2>
+  <ul class="ticks">
+    <li>A written report, with each finding ranked blocking, should-fix or low, and the evidence behind it.</li>
+    <li>A prioritised plan your team can work through, with example fixes where they help.</li>
+    <li>A walkthrough session to go through the findings and answer questions.</li>
+  </ul>
+
+  <h2>What is not included</h2>
+  <ul class="ticks">
+    <li>Fixing the findings. Your team can do that from the plan, or you can follow on with a <a href={href("secure-delivery/")}>Secure delivery setup</a>.</li>
+    <li>Production credentials. The review works from read-only access wherever possible.</li>
+    <li>Ongoing monitoring or support after the walkthrough.</li>
+  </ul>
+
+  <p class="cta"><a class="button" href={href("contact/")}>Discuss a review</a></p>
+</Base>

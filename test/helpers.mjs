@@ -5,10 +5,20 @@ import site from "../site.config.mjs";
 export const dist = new URL("../dist/", import.meta.url).pathname;
 export { site };
 
+export const packagePages = ["delivery-review/", "secure-delivery/", "ai-code-review/"];
+
 export const pages = [
-  "", "architecture-review/", "platform-build/", "ai-code-review/", "pricing/",
-  "demo/", "about/", "articles/", "contact/",
+  "", ...packagePages, "how-we-build/", "pricing/", "demo/", "about/", "articles/", "contact/",
 ];
+
+/** Visible text of an HTML page: scripts, styles and tags removed. */
+export function visibleText(html) {
+  return html
+    .replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .replace(/\s+/g, " ");
+}
 
 export function htmlFiles(dir = dist) {
   return readdirSync(dir).flatMap((name) => {

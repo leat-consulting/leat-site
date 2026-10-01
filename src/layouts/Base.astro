@@ -1,6 +1,6 @@
 ---
 import Meta from "../components/Meta.astro";
-import { href, nav, site } from "../lib";
+import { href, nav, packages, site } from "../lib";
 import "../styles/global.css";
 
 interface Props {
@@ -49,15 +49,16 @@ const year = new Date().getFullYear();
     </main>
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>{site.name}. Secure delivery platforms for engineering teams.</p>
+        <p>{site.name}. Secure software delivery, set up properly and handed over.</p>
         <p>
           This site is built and deployed by the workflows it describes.
-          <a href={href("demo/")}>See how</a>.
+          <a href={href("how-we-build/")}>See how</a>.
         </p>
         <ul class="footer-links">
-          <li><a href={site.github}>GitHub</a></li>
+          {packages.map((p) => <li><a href={href(p.path)}>{p.name}</a></li>)}
+          <li><a href={href("how-we-build/")}>How we build</a></li>
           <li><a href={href("articles/")}>Articles</a></li>
-          <li><a href={href("contact/")}>Contact</a></li>
+          <li><a href={site.github}>GitHub</a></li>
           <li><a href={href(".well-known/security.txt")}>Security</a></li>
         </ul>
         <p class="small">&copy; {year} {site.name}</p>

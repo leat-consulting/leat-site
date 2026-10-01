@@ -9,7 +9,7 @@ export default {
   // false until launch: every page is noindex and robots.txt disallows all.
   indexable: false,
   description:
-    "Leat Consulting builds secure delivery platforms for engineering teams: architecture reviews, hardened CI/CD and AI code review you own.",
+    "Leat Consulting secures how software is built and delivered: fixed-scope reviews, hardened pipelines and AI code review, handed over for your team to own.",
   areaServed: ["London", "United Kingdom"],
   github: "https://github.com/leat-consulting",
   // Booking link and email are not set up yet. Pages show a holding line

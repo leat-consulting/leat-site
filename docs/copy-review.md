@@ -1,9 +1,8 @@
 # Copy that needs the owner's input
 
-The pages carry draft copy written from the build plan. Nothing here invents clients, testimonials, prices or metrics, but these points need a decision before launch:
+The pages carry copy written from the build plan and the owner's CV. Nothing invents clients, testimonials, prices or metrics. Former employers and their clients are not named, by the owner's decision of 2026-10-01.
 
-- **Pricing**: the page says "Price on request" or "Scoped and priced per engagement". Add figures or ranges, or confirm this wording.
-- **About**: says Leat is London-based. There is no personal background. Add a short biography, or confirm the page stays about the company only.
+Still open before launch:
+
+- **Pricing**: each package shows "Price on request", and the page says the price depends on the number of repositories, pipelines and cloud accounts in scope. Add figures or ranges, or confirm this wording.
 - **Contact**: shows a holding line until `bookingUrl` and `email` are set in `site.config.mjs`.
-- **Architecture review**: mentions a written report and a walkthrough session. Confirm this matches how you want to deliver it.
-- **AI code review**: says model usage is billed to the client's own Anthropic account. Confirm this is the model you want.

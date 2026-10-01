@@ -12,10 +12,32 @@ export function absolute(path: string): string {
   return new URL(href(path), site.siteUrl).toString();
 }
 
+/** The three packages, in the order they are presented everywhere. */
+export const packages = [
+  {
+    path: "delivery-review/",
+    name: "Delivery review",
+    summary: "A fixed-scope review of how code reaches production, from source control and CI/CD to cloud access, with findings ranked and a plan to fix them.",
+    receive: "A ranked report, a prioritised plan and a walkthrough",
+  },
+  {
+    path: "secure-delivery/",
+    name: "Secure delivery setup",
+    summary: "Hardened, reusable pipelines and protection rules installed in your own GitHub organisation, then handed over for your team to own.",
+    receive: "Working pipelines, documentation and a handover session",
+  },
+  {
+    path: "ai-code-review/",
+    name: "AI code review setup",
+    summary: "AI review on every pull request, with tight permissions and spend limits, tuned to your codebase and handed over.",
+    receive: "Configured review, documented rules and a handover session",
+  },
+];
+
+/** Header navigation. Services points at the package list on the home page. */
 export const nav = [
-  { path: "architecture-review/", label: "Architecture review" },
-  { path: "platform-build/", label: "Platform build" },
-  { path: "ai-code-review/", label: "AI code review" },
+  { path: "#packages", label: "Services" },
+  { path: "how-we-build/", label: "How we build" },
   { path: "pricing/", label: "Pricing" },
   { path: "demo/", label: "Demo" },
   { path: "articles/", label: "Articles" },
