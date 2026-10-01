@@ -56,8 +56,8 @@ test("the about page names no former employer or client", () => {
   }
 });
 
-test("Delivery review and Secure delivery setup are offered on GitHub and GitLab", () => {
-  for (const route of ["delivery-review/", "secure-delivery/"]) {
+test("Platform review and Delivery platform setup are offered on GitHub and GitLab", () => {
+  for (const route of ["platform-review/", "platform-setup/"]) {
     const text = visibleText(read(pageFile(route)));
     assert.ok(text.includes("GitHub") && text.includes("GitLab"), `/${route} must mention GitHub and GitLab`);
   }

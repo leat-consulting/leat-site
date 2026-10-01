@@ -15,16 +15,16 @@ export function absolute(path: string): string {
 /** The three packages, in the order they are presented everywhere. */
 export const packages = [
   {
-    path: "delivery-review/",
+    path: "platform-review/",
     icon: "review" as const,
-    name: "Delivery review",
+    name: "Platform review",
     summary: "A fixed-scope review of how code reaches production, from source control and CI/CD to cloud access, with findings ranked and a plan to fix them.",
     receive: "A ranked report, a prioritised plan and a walkthrough",
   },
   {
-    path: "secure-delivery/",
+    path: "platform-setup/",
     icon: "shield" as const,
-    name: "Secure delivery setup",
+    name: "Delivery platform setup",
     summary: "Hardened, reusable pipelines and protection rules built in your own GitHub organisation or GitLab group, then handed over for your team to own.",
     receive: "Working pipelines, documentation and a handover session",
   },

@@ -5,7 +5,7 @@ import site from "../site.config.mjs";
 export const dist = new URL("../dist/", import.meta.url).pathname;
 export { site };
 
-export const packagePages = ["delivery-review/", "secure-delivery/", "ai-code-review/"];
+export const packagePages = ["platform-review/", "platform-setup/", "ai-code-review/"];
 
 export const pages = [
   "", ...packagePages, "how-we-build/", "pricing/", "demo/", "about/", "articles/", "contact/",
