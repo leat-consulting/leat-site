@@ -8,46 +8,48 @@ const gh = "https://github.com/leat-consulting";
   title="Demo"
   description="The public repositories behind Leat Consulting: reusable workflows, the governance that protects them, and the pull requests that built them."
 >
-  <h1>Demo</h1>
-  <p class="lead">
-    Everything here is real and public. The repositories below build and protect this website, and every
-    change to them arrived through a reviewed pull request.
-  </p>
+  <section class="band band--hero">
+    <span class="eyebrow">Demo</span>
+    <h1>Everything here is real and public</h1>
+    <p class="lead">
+      These repositories build and protect this website, and every change to them arrived through a reviewed
+      pull request. Read the code, the rules and the history.
+    </p>
+  </section>
 
-  <h2><a href={`${gh}/platform-workflows`}>platform-workflows</a></h2>
-  <p>
-    The reusable workflows: CI, security scanning, multi-architecture container builds with verified
-    provenance, and verified GitHub Pages deploys. A self-test runs every workflow on each change, and
-    scans a branch of deliberately planted problems to prove each scanner still catches them.
-  </p>
-  <ul class="ticks">
-    <li>
-      <a href={`${gh}/platform-workflows/pull/1`}>Pull request 1</a>: organisation governance defined as code. It was written by
-      our Claude GitHub App and could not merge until a person approved it.
+  <ul class="grid-2">
+    <li class="card">
+      <h2><a href={`${gh}/platform-workflows`}>platform-workflows</a></h2>
+      <p>
+        The reusable workflows: CI, security scanning, multi-architecture container builds with verified
+        provenance, and verified GitHub Pages deploys. A self-test runs every workflow on each change, and
+        scans a branch of planted problems to prove each scanner still catches them.
+      </p>
+      <ul class="ticks small">
+        <li><a href={`${gh}/platform-workflows/pull/1`}>Pull request 1</a>: organisation governance as code, written by our Claude GitHub App and merged only after a person approved it.</li>
+        <li><a href={`${gh}/platform-workflows/pull/2`}>Pull request 2</a>: the first workflows. Its first run failed on a GitHub permissions rule, and the fix is in the history.</li>
+        <li><a href={`${gh}/platform-workflows/releases/tag/v1.0.0`}>Release v1.0.0</a>: an immutable release that callers pin by commit.</li>
+        <li><a href={`${gh}/platform-workflows/tree/main/governance`}>governance</a>: the rules and settings, with a drift check and evidence that they bind even the owner.</li>
+      </ul>
     </li>
-    <li>
-      <a href={`${gh}/platform-workflows/pull/2`}>Pull request 2</a>: the first version of the workflows. Its first run failed on a
-      GitHub permissions rule, and the fix is in the history.
+    <li class="card">
+      <h2><a href={`${gh}/leat-site`}>leat-site</a></h2>
+      <p>
+        The source for this website. It calls the shared workflows for CI, scanning and deployment, and each
+        deploy is signed and verified before it goes live.
+      </p>
+      <ul class="ticks small">
+        <li><a href={`${gh}/leat-site/blob/main/.github/workflows/pr.yml`}>Pull request checks</a>: build, tests, security scan and a Lighthouse quality check.</li>
+        <li><a href={`${gh}/leat-site/blob/main/.github/workflows/main.yml`}>Deploy</a>: built once, signed, verified and deployed from main.</li>
+      </ul>
     </li>
-    <li>
-      <a href={`${gh}/platform-workflows/releases/tag/v1.0.0`}>Release v1.0.0</a>: an immutable release that callers pin by commit.
-    </li>
-    <li>
-      <a href={`${gh}/platform-workflows/tree/main/governance`}>governance</a>: the rulesets and organisation settings, with a
-      drift check and evidence that the rules bind even the owner.
+    <li class="card">
+      <span><span class="badge">Planned</span></span>
+      <h2><a href={`${gh}/demo-app`}>demo-app</a></h2>
+      <p>
+        A small service that will show the whole flow on an application: AI review catching a bug, an AI fix
+        approved by a person, a change blocked by a security scan, and a container image checked before it runs.
+      </p>
     </li>
   </ul>
-
-  <h2><a href={`${gh}/leat-site`}>leat-site</a></h2>
-  <p>
-    The source for this website. It calls the shared workflows for CI, scanning and deployment, and
-    each deploy is signed and verified before it goes live.
-  </p>
-
-  <h2><a href={`${gh}/demo-app`}>demo-app</a></h2>
-  <p>
-    A small service being built to show the whole flow on an application: AI review catching a bug, an
-    AI fix approved by a person, a pull request blocked by a security scan, and a container image checked
-    before it runs.
-  </p>
 </Base>

@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- Template for public/og-default.png, the image shown when a page is shared.
+     Render at 1200x630 with a headless browser after npm ci, for example:
+     chrome --headless=new --screenshot=public/og-default.png --window-size=1200,630 file://$PWD/scripts/og-image.html -->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Inter; src: url("../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { background: #0d1411; color: #e6ece8; font-family: Inter, sans-serif; display: flex; flex-direction: column; justify-content: center; padding: 0 96px; box-sizing: border-box; }
+  .wordmark { display: inline-flex; align-items: baseline; font-weight: 750; font-size: 150px; line-height: 1; letter-spacing: -0.055em; }
+  .wm-prompt { color: #6fd3a8; font-weight: 700; margin-right: 0.22em; letter-spacing: 0; }
+  .wm-cursor { display: inline-block; width: 0.46em; height: 0.15em; margin-left: 0.14em; background: #6fd3a8; }
+  p { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; margin: 48px 0 0; max-width: 22em; line-height: 1.2; }
+  .sub { font-size: 26px; font-weight: 500; color: #a5b3ab; margin-top: 20px; letter-spacing: 0; max-width: none; }
+</style>
+</head>
+<body>
+  <div class="wordmark"><span class="wm-prompt">&gt;</span>leat<span class="wm-cursor"></span></div>
+  <p>From laptop to production, done properly.</p>
+  <p class="sub">Leat Consulting · platform engineering on GitHub, GitLab and AWS</p>
+</body>
+</html>

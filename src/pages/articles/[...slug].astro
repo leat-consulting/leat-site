@@ -15,11 +15,18 @@ const fmt = new Intl.DateTimeFormat("en-GB", { dateStyle: "long" });
 
 <Base title={article.data.title} description={article.data.description} type="article">
   <article class="prose">
+    <a class="eyebrow" href={href("articles/")}>Articles</a>
     <h1>{article.data.title}</h1>
-    <p class="small">
+    <p class="article-meta">
       <time datetime={article.data.date.toISOString().slice(0, 10)}>{fmt.format(article.data.date)}</time>
     </p>
     <Content />
   </article>
-  <p><a href={href("articles/")}>All articles</a></p>
+  <section aria-labelledby="more-heading">
+    <h2 id="more-heading">More</h2>
+    <div class="actions">
+      <a class="button-secondary" href={href("articles/")}>All articles</a>
+      <a class="button-secondary" href={href("how-we-build/")}>How we build</a>
+    </div>
+  </section>
 </Base>

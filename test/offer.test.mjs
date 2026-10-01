@@ -51,7 +51,20 @@ test("every diagram has a title and a text equivalent", () => {
 
 test("the about page names no former employer or client", () => {
   const text = visibleText(read(pageFile("about/")));
-  for (const name of ["Starlizard", "Rackspace", "Volkswagen", "Cabinet Office", "CBRE", "Mountain Warehouse", "PRA Group", "Estar"]) {
+  for (const name of ["Cassini", "Starlizard", "Rackspace", "Volkswagen", "Cabinet Office", "CBRE", "Mountain Warehouse", "PRA Group", "Estar"]) {
     assert.ok(!text.includes(name), `about page names ${name}`);
   }
+});
+
+test("Platform review and Delivery platform setup are offered on GitHub and GitLab", () => {
+  for (const route of ["platform-review/", "platform-setup/"]) {
+    const text = visibleText(read(pageFile(route)));
+    assert.ok(text.includes("GitHub") && text.includes("GitLab"), `/${route} must mention GitHub and GitLab`);
+  }
+});
+
+test("the site presents a founder, not an invented team", () => {
+  const text = visibleText(read(pageFile("about/")));
+  assert.match(text, /founded by Fraser Davidson/);
+  assert.ok(!/\b(our team of|our consultants|our engineers|team members)\b/i.test(text), "about page implies staff");
 });

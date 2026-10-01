@@ -1,31 +1,26 @@
 ---
-import Base from "../layouts/Base.astro";
-import { href } from "../lib";
+import Package from "../layouts/Package.astro";
 ---
 
-<Base
+<Package
+  slug="ai-code-review/"
   title="AI code review setup"
-  description="AI review on every pull request, with least-privilege permissions, spend limits and guardrails, tuned to your codebase and handed over."
+  description="AI review on every pull or merge request, on GitHub or GitLab, with least-privilege permissions, spend limits and guardrails, tuned to your codebase and handed over."
+  lead="AI review that catches real problems before a person looks, runs inside your own GitHub or GitLab, and cannot change anything it should not."
+  forWho="Teams whose reviewers are the bottleneck, or who already write code with AI tools"
 >
-  <p class="eyebrow">Package 3</p>
-  <h1>AI code review setup</h1>
-  <p class="lead">
-    AI review that catches real problems before a person looks, runs inside your own GitHub
-    organisation, and cannot change anything it should not.
-  </p>
-
   <h2>Who it is for</h2>
   <ul class="ticks">
-    <li>Teams whose reviewers are the bottleneck, and who want a useful first pass on every pull request.</li>
+    <li>Teams whose reviewers are the bottleneck, and who want a useful first pass on every change.</li>
     <li>Teams already writing code with AI tools, who want the review side to keep up safely.</li>
   </ul>
 
   <h2>What is included</h2>
   <ul class="ticks">
-    <li>Claude reviewing each pull request through GitHub Actions, using your own Anthropic account and key.</li>
-    <li>Review rules built from a shared base and each repository's conventions, tuned over the first pull requests to keep noise low.</li>
+    <li>Claude reviewing each change in your CI, using your own Anthropic account and key: on GitHub through Anthropic's official action, and on GitLab through the Claude Code GitLab CI/CD integration, which is currently in beta and maintained by GitLab.</li>
+    <li>Review rules built from a shared base and each repository's conventions, tuned over the first changes to keep noise low.</li>
     <li>Findings graded blocking, should-fix or nit, with nits collected into one comment.</li>
-    <li>Guardrails: review is comment-only and never approves, pull requests from outside contributors never reach the model or its key, and timeouts and a monthly spend limit cap the cost.</li>
+    <li>Guardrails: review is comment-only and never approves, changes from outside contributors never reach the model or its key, and timeouts and a monthly spend limit cap the cost.</li>
   </ul>
 
   <h2>What you receive</h2>
@@ -36,10 +31,8 @@ import { href } from "../lib";
   </ul>
 
   <h2>What is not included</h2>
-  <ul class="ticks">
+  <ul class="excludes">
     <li>Model usage. Anthropic bills your own account directly, so you see and control that cost.</li>
     <li>Ongoing tuning after the handover.</li>
   </ul>
-
-  <p class="cta"><a class="button" href={href("contact/")}>Discuss AI review</a></p>
-</Base>
+</Package>

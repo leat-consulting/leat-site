@@ -15,26 +15,29 @@ export function absolute(path: string): string {
 /** The three packages, in the order they are presented everywhere. */
 export const packages = [
   {
-    path: "delivery-review/",
-    name: "Delivery review",
+    path: "platform-review/",
+    icon: "review" as const,
+    name: "Platform review",
     summary: "A fixed-scope review of how code reaches production, from source control and CI/CD to cloud access, with findings ranked and a plan to fix them.",
     receive: "A ranked report, a prioritised plan and a walkthrough",
   },
   {
-    path: "secure-delivery/",
-    name: "Secure delivery setup",
-    summary: "Hardened, reusable pipelines and protection rules installed in your own GitHub organisation, then handed over for your team to own.",
+    path: "platform-setup/",
+    icon: "shield" as const,
+    name: "Delivery platform setup",
+    summary: "Hardened, reusable pipelines and protection rules built in your own GitHub organisation or GitLab group, then handed over for your team to own.",
     receive: "Working pipelines, documentation and a handover session",
   },
   {
     path: "ai-code-review/",
+    icon: "review-ai" as const,
     name: "AI code review setup",
-    summary: "AI review on every pull request, with tight permissions and spend limits, tuned to your codebase and handed over.",
+    summary: "AI review on every pull or merge request, with tight permissions and spend limits, tuned to your codebase and handed over.",
     receive: "Configured review, documented rules and a handover session",
   },
 ];
 
-/** Header navigation. Services points at the package list on the home page. */
+/** Header navigation. Services points at the package list on the home page. Contact is the header button. */
 export const nav = [
   { path: "#packages", label: "Services" },
   { path: "how-we-build/", label: "How we build" },
@@ -42,7 +45,6 @@ export const nav = [
   { path: "demo/", label: "Demo" },
   { path: "articles/", label: "Articles" },
   { path: "about/", label: "About" },
-  { path: "contact/", label: "Contact" },
 ];
 
 export { site };

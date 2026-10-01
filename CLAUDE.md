@@ -14,6 +14,7 @@ something a prospective client will read.
 - Every GitHub Actions job declares minimal `permissions:` and `timeout-minutes:`; every `uses:` is pinned to a full commit SHA with a version comment.
 - Diagrams on the How we build page (`src/components/diagrams/`) must match what exists in the public repos. Update a diagram in the same pull request as the change it depicts; each component lists the files it depicts in a comment.
 - The offer is three fixed-scope packages that end in a handover. Never offer or imply retainers, on-call, managed services or ongoing support; the tests enforce this.
+- Design: every colour, size and space comes from the tokens at the top of `src/styles/global.css` (light and dark). No one-off colours or sizes. Text-led pages, no hero images or animation. Check layout changes with desktop and phone screenshots before review.
 - Prose: British English, measured tone, no exclamation marks, no em-dashes, no invented clients, testimonials, prices or metrics.
 
 ## Checks to run before committing

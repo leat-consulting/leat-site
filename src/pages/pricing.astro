@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
 import { href, packages } from "../lib";
 ---
 
@@ -7,27 +8,34 @@ import { href, packages } from "../lib";
   title="Pricing"
   description="Every Leat Consulting package has a fixed scope and a fixed price, agreed in writing before work starts, and ends with a handover."
 >
-  <h1>Pricing</h1>
-  <p class="lead">
-    Every package has a fixed scope and a fixed price, agreed in writing before any work starts. You
-    know what you will receive and what it will cost, and the work ends with a handover.
-  </p>
+  <section class="band band--hero">
+    <span class="eyebrow">Pricing</span>
+    <h1>Fixed scope, fixed price</h1>
+    <p class="lead">
+      Every package has a fixed scope and a fixed price, agreed in writing before any work starts. You know
+      what you will receive and what it will cost, and the work ends with a handover.
+    </p>
+  </section>
 
-  <ul class="cards">
+  <ul class="grid-3">
     {packages.map((p) => (
       <li class="card">
+        <Icon name={p.icon} />
         <h2><a href={href(p.path)}>{p.name}</a></h2>
         <p>{p.summary}</p>
         <p class="small"><strong>You receive:</strong> {p.receive}</p>
-        <p><strong>Price on request</strong></p>
+        <p class="price card-foot">Price on request</p>
       </li>
     ))}
   </ul>
 
-  <p>
-    The price depends on the size of your estate: how many repositories, pipelines and cloud accounts
-    are in scope. We agree that list with you first, so the price does not move afterwards.
-  </p>
-  <p>For AI code review, model usage is billed by Anthropic to your own account, so you always see and control that cost.</p>
-  <p class="cta"><a class="button" href={href("contact/")}>Ask for a quote</a></p>
+  <section aria-labelledby="price-heading">
+    <h2 id="price-heading">How the price is set</h2>
+    <p>
+      The price depends on the size of your estate: how many repositories, pipelines and cloud accounts are in
+      scope. We agree that list with you first, so the price does not move afterwards.
+    </p>
+    <p>For AI code review, model usage is billed by Anthropic to your own account, so you always see and control that cost.</p>
+    <div class="actions"><a class="button" href={href("contact/")}>Ask for a quote</a></div>
+  </section>
 </Base>

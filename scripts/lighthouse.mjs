@@ -14,7 +14,7 @@ const RUNS = 3;
 const PORT = 4321;
 const CATEGORIES = ["performance", "accessibility", "best-practices", "seo"];
 const base = site.basePath.replace(/\/$/, "");
-const PAGES = ["", "secure-delivery/", "how-we-build/", "articles/pinning-actions-to-commits/"];
+const PAGES = ["", "platform-setup/", "how-we-build/", "articles/pinning-actions-to-commits/"];
 
 function run(command, args) {
   return new Promise((resolve, reject) => {

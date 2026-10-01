@@ -1,19 +1,15 @@
 ---
-import Base from "../layouts/Base.astro";
+import Package from "../layouts/Package.astro";
 import { href } from "../lib";
 ---
 
-<Base
-  title="Delivery review"
-  description="A fixed-scope review of how your code reaches production, from source control and CI/CD to AWS access and Terraform, with findings ranked by risk."
+<Package
+  slug="platform-review/"
+  title="Platform review"
+  description="A fixed-scope review of how your code reaches production, on GitHub or GitLab, from source control and CI/CD to AWS access and Terraform, with findings ranked by risk."
+  lead="Find out where the path from a developer's laptop to production could be abused, and what to fix first. Fixed scope, fixed price, and a clear plan at the end."
+  forWho="Teams on GitHub or GitLab preparing for an audit, a funding round or a large customer"
 >
-  <p class="eyebrow">Package 1</p>
-  <h1>Delivery review</h1>
-  <p class="lead">
-    Find out where the path from a developer's laptop to production could be abused, and what to fix
-    first. Fixed scope, fixed price, and a clear plan at the end.
-  </p>
-
   <h2>Who it is for</h2>
   <ul class="ticks">
     <li>Engineering leaders who want an outside view before a funding round, an audit or a large customer's security questionnaire.</li>
@@ -23,11 +19,11 @@ import { href } from "../lib";
 
   <h2>What is included</h2>
   <ul class="ticks">
-    <li>Source control: branch and tag protection, review rules, and who can bypass them.</li>
+    <li>Source control on GitHub or GitLab: branch and tag protection, review and approval rules, and who can bypass them.</li>
     <li>CI/CD: what each pipeline is allowed to do, how secrets are held, and what third-party code it runs.</li>
     <li>Dependencies and images: how vulnerabilities and leaked secrets are caught, and what actually gets deployed.</li>
     <li>Cloud access: how pipelines reach AWS (or Azure), long-lived keys, and how tightly access is scoped across accounts.</li>
-    <li>Infrastructure as code: how Terraform changes are planned, reviewed and applied.</li>
+    <li>Infrastructure as code: how Terraform or CloudFormation changes are planned, reviewed and applied.</li>
     <li>AI tools in the pipeline: what they can read, write and spend.</li>
   </ul>
 
@@ -39,11 +35,9 @@ import { href } from "../lib";
   </ul>
 
   <h2>What is not included</h2>
-  <ul class="ticks">
-    <li>Fixing the findings. Your team can do that from the plan, or you can follow on with a <a href={href("secure-delivery/")}>Secure delivery setup</a>.</li>
+  <ul class="excludes">
+    <li>Fixing the findings. Your team can do that from the plan, or you can follow on with a <a href={href("platform-setup/")}>Delivery platform setup</a>.</li>
     <li>Production credentials. The review works from read-only access wherever possible.</li>
     <li>Ongoing monitoring or support after the walkthrough.</li>
   </ul>
-
-  <p class="cta"><a class="button" href={href("contact/")}>Discuss a review</a></p>
-</Base>
+</Package>

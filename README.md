@@ -19,3 +19,5 @@ npm run lighthouse # needs Chrome
 ```
 
 Site-wide settings, including the URL, indexing and contact details, are in [`site.config.mjs`](site.config.mjs). The steps for moving to the custom domain and launching are in [`docs/launch.md`](docs/launch.md).
+
+The sharing image `public/og-default.png` is rendered from `scripts/og-image.html` with a headless browser; the command is in that file.

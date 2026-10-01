@@ -5,25 +5,28 @@ import { site } from "../lib";
 
 <Base
   title="Contact"
-  description="Book a call with Leat Consulting to discuss an architecture review, a platform build or AI code review."
+  description="Talk to Leat Consulting about a Platform review, a Delivery platform setup or AI code review, on GitHub or GitLab."
 >
-  <h1>Contact</h1>
-  {site.bookingUrl ? (
-    <>
-      <p class="lead">Book a short call to talk through what you need.</p>
-      <p><a class="button" href={site.bookingUrl}>Book a call</a></p>
-    </>
-  ) : (
-    <p class="lead">Booking opens shortly. In the meantime, you can follow the work on GitHub.</p>
-  )}
-  {site.email && (
-    <p>Or email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
-  )}
-  <p><a href={site.github}>github.com/leat-consulting</a></p>
+  <section class="band band--hero">
+    <span class="eyebrow">Contact</span>
+    <h1>Talk to us</h1>
+    {site.bookingUrl ? (
+      <>
+        <p class="lead">Book a short call to talk through what you need.</p>
+        <div class="actions"><a class="button" href={site.bookingUrl}>Book a call</a></div>
+      </>
+    ) : (
+      <p class="lead">Booking opens shortly. In the meantime, you can follow the work on GitHub.</p>
+    )}
+    {site.email && <p>Or email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>}
+    <div class="actions"><a class="button-secondary" href={site.github}>github.com/leat-consulting</a></div>
+  </section>
 
-  <h2>Reporting a security issue</h2>
-  <p>
-    Please do not use the booking link or public issues. Report it privately through
-    <a href="https://github.com/leat-consulting/leat-site/security/advisories/new">GitHub's private vulnerability reporting</a>.
-  </p>
+  <section aria-labelledby="security-heading">
+    <h2 id="security-heading">Reporting a security issue</h2>
+    <p>
+      Please do not use the booking link or public issues. Report it privately through
+      <a href="https://github.com/leat-consulting/leat-site/security/advisories/new">GitHub's private vulnerability reporting</a>.
+    </p>
+  </section>
 </Base>

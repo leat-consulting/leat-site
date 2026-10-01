@@ -9,15 +9,21 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft)).so
 const fmt = new Intl.DateTimeFormat("en-GB", { dateStyle: "long" });
 ---
 
-<Base title="Articles" description="Practical writing on CI/CD security, GitHub Actions, software supply chains and AI code review.">
-  <h1>Articles</h1>
-  <p class="lead">Practical notes from building and securing delivery pipelines.</p>
+<Base title="Articles" description="Practical writing on CI/CD security, GitHub Actions, GitLab CI/CD, software supply chains and AI code review.">
+  <section class="band band--hero">
+    <span class="eyebrow">Articles</span>
+    <h1>Notes from building secure pipelines</h1>
+    <p class="lead">Practical writing on what we build and why, with links to the real code.</p>
+  </section>
+
   <ul class="article-list">
     {articles.map((article) => (
       <li>
-        <h2><a href={href(`articles/${article.id}/`)}>{article.data.title}</a></h2>
-        <p class="small"><time datetime={article.data.date.toISOString().slice(0, 10)}>{fmt.format(article.data.date)}</time></p>
-        <p>{article.data.description}</p>
+        <a class="card card--link" href={href(`articles/${article.id}/`)}>
+          <p class="small"><time datetime={article.data.date.toISOString().slice(0, 10)}>{fmt.format(article.data.date)}</time></p>
+          <h2>{article.data.title}</h2>
+          <p>{article.data.description}</p>
+        </a>
       </li>
     ))}
   </ul>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
 import { absolute, href, packages, site } from "../lib";
 
 const jsonLd = {
@@ -10,77 +11,113 @@ const jsonLd = {
   description: site.description,
   areaServed: site.areaServed.map((name) => ({ "@type": "Place", name })),
   sameAs: [site.github],
-  knowsAbout: ["CI/CD security", "GitHub Actions", "AWS", "Terraform", "AI code review"],
+  knowsAbout: ["CI/CD security", "GitHub Actions", "GitLab CI/CD", "AWS", "Terraform", "AI code review"],
 };
 ---
 
-<Base title={site.name} description={site.description}>
+<Base title={site.name} description={site.description} preloadFont>
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
-  <section class="hero">
-    <h1>Ship quickly, without the pipeline being your weakest point</h1>
+  <section class="band band--hero">
+    <span class="eyebrow">Platform engineering for growing teams</span>
+    <h1>From laptop to production, done properly</h1>
     <p class="lead">
-      The systems that build and deploy your software can read your code, hold your cloud credentials
-      and change production. We secure them properly, in your own repositories, then hand everything
-      over for your team to own.
+      We set up the path your code takes to production: source control, CI/CD pipelines, cloud
+      infrastructure on AWS, and the access that connects them. Built in your own GitHub or GitLab and
+      cloud accounts, then handed over for your team to own.
     </p>
-    <p class="hero-actions">
+    <div class="actions">
       <a class="button" href={href("contact/")}>Talk to us</a>
-      <a class="button-secondary" href={href("how-we-build/")}>See how we build</a>
-    </p>
+      <a class="button-secondary" href={href("#packages")}>See the packages</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="path-heading">
+    <span class="eyebrow">What we do</span>
+    <h2 id="path-heading">Every step between a commit and a customer</h2>
+    <ol class="path">
+      <li>
+        <h3>Laptop</h3>
+        <p>Engineers and AI coding tools write changes, with the conventions and checks they need close at hand.</p>
+      </li>
+      <li>
+        <h3>Repository</h3>
+        <p>Pull or merge requests, review rules and branch protection, on GitHub or GitLab.</p>
+      </li>
+      <li>
+        <h3>Pipeline</h3>
+        <p>Shared CI/CD that builds, tests and checks every change the same way, in every repository.</p>
+      </li>
+      <li>
+        <h3>Cloud</h3>
+        <p>AWS accounts and infrastructure defined as code with Terraform or CloudFormation, reviewed like code.</p>
+      </li>
+      <li>
+        <h3>Production</h3>
+        <p>Deployed by pipelines using short-lived access (OIDC), so there are no long-lived keys to leak.</p>
+      </li>
+    </ol>
   </section>
 
   <section aria-labelledby="outcomes-heading">
+    <span class="eyebrow">Why it matters</span>
     <h2 id="outcomes-heading">What changes for your team</h2>
-    <ul class="outcomes">
-      <li>
-        <h3>Fewer ways in</h3>
-        <p>Dependencies, pipelines and cloud access hardened against the supply-chain attacks that now hit companies of every size.</p>
+    <ul class="grid-4">
+      <li class="outcome">
+        <h3>Faster, repeatable releases</h3>
+        <p>One way to build, test and deploy, shared by every repository, instead of each team reinventing it.</p>
       </li>
-      <li>
-        <h3>Answers ready</h3>
-        <p>Clear evidence of how code is reviewed, built and released, for security questionnaires, audits and due diligence.</p>
+      <li class="outcome">
+        <h3>Infrastructure you can read</h3>
+        <p>Cloud resources defined as code and changed through review, so you know what is running and why.</p>
       </li>
-      <li>
-        <h3>AI without the keys</h3>
-        <p>Use AI coding and review tools while a person still approves everything that reaches production.</p>
+      <li class="outcome">
+        <h3>No keys lying around</h3>
+        <p>Pipelines reach the cloud with short-lived access, and AI tools and bots propose changes that people approve.</p>
       </li>
-      <li>
-        <h3>No slower shipping</h3>
-        <p>Checks run automatically on every pull request. Engineers keep working the way they do today.</p>
+      <li class="outcome">
+        <h3>Ready when someone asks</h3>
+        <p>Clear answers on how software is reviewed, built and released, for customers, auditors and investors.</p>
       </li>
     </ul>
   </section>
 
-  <section id="packages" aria-labelledby="packages-heading">
+  <section id="packages" class="band band--tint" aria-labelledby="packages-heading">
+    <span class="eyebrow">Services</span>
     <h2 id="packages-heading">Three fixed-scope packages</h2>
-    <p>Each has a fixed scope and a fixed price, agreed before work starts, and ends with a handover.</p>
-    <ul class="cards">
+    <p class="lead">Each has a fixed scope and a fixed price, agreed before work starts, and ends with a handover.</p>
+    <ul class="grid-3">
       {packages.map((p) => (
-        <li class="card">
+        <li class="card card--link">
+          <Icon name={p.icon} />
           <h3><a href={href(p.path)}>{p.name}</a></h3>
           <p>{p.summary}</p>
-          <p class="small"><strong>You receive:</strong> {p.receive}</p>
+          <p class="small card-foot"><strong>You receive:</strong> {p.receive}</p>
         </li>
       ))}
     </ul>
   </section>
 
   <section aria-labelledby="work-heading">
-    <h2 id="work-heading">How we work</h2>
+    <span class="eyebrow">How we work</span>
+    <h2 id="work-heading">Agreed up front, done in the open, handed over</h2>
     <ol class="steps">
-      <li><strong>Agree the scope.</strong> What is included, what you receive and the price, in writing, before any work starts.</li>
-      <li><strong>Work in your repositories.</strong> Every change is a pull request your team reviews, so nothing happens out of sight.</li>
-      <li><strong>Hand over.</strong> Documentation and a handover session. You own everything, with no retainer and no lock-in.</li>
+      <li><h3>Agree the scope</h3><p>What is included, what you receive and the price, in writing, before any work starts.</p></li>
+      <li><h3>Work in your repositories</h3><p>Every change is a pull or merge request your team reviews, so nothing happens out of sight.</p></li>
+      <li><h3>Hand over</h3><p>Documentation and a handover session. You own everything, with no retainer and no lock-in.</p></li>
     </ol>
   </section>
 
-  <section aria-labelledby="open-heading">
-    <h2 id="open-heading">Built in the open</h2>
-    <p>
-      This website is built, checked and deployed by the same workflows we set up for clients. The
+  <section class="band band--tint" aria-labelledby="open-heading">
+    <span class="eyebrow">Built in the open</span>
+    <h2 id="open-heading">We run the same setup ourselves</h2>
+    <p class="lead">
+      This website is built, checked and deployed by the same kind of pipeline we set up for clients. The
       repositories, the rules that protect them and every change to them are public.
     </p>
-    <p><a href={href("how-we-build/")}>How we build</a> &middot; <a href={href("demo/")}>The demo repositories</a></p>
+    <div class="actions">
+      <a class="button-secondary" href={href("how-we-build/")}>How we build</a>
+      <a class="button-secondary" href={href("demo/")}>The demo repositories</a>
+    </div>
   </section>
 </Base>
