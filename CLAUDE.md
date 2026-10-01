@@ -12,6 +12,8 @@ something a prospective client will read.
 - No third-party scripts except the Cloudflare Web Analytics beacon, once the domain is live.
 - Site URL, base path, indexing and contact details live in `site.config.mjs`. Build links with `href()` from `src/lib.ts`, never hard-coded paths.
 - Every GitHub Actions job declares minimal `permissions:` and `timeout-minutes:`; every `uses:` is pinned to a full commit SHA with a version comment.
+- Diagrams on the How we build page (`src/components/diagrams/`) must match what exists in the public repos. Update a diagram in the same pull request as the change it depicts; each component lists the files it depicts in a comment.
+- The offer is three fixed-scope packages that end in a handover. Never offer or imply retainers, on-call, managed services or ongoing support; the tests enforce this.
 - Prose: British English, measured tone, no exclamation marks, no em-dashes, no invented clients, testimonials, prices or metrics.
 
 ## Checks to run before committing
