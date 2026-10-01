@@ -1,0 +1,103 @@
+---
+// Depicts: platform-workflows (reusable workflows, governance/), leat-site
+// (.github/workflows/pr.yml, main.yml), demo-app (planned), the default-branch
+// ruleset, GitHub Actions, GHCR, GitHub Pages and build attestations.
+// Update this diagram in the same pull request as any change to those.
+const W = 160;
+const cols = [4, 180, 356];
+const mid = (x: number) => x + W / 2;
+---
+
+<figure class="diagram">
+  <svg viewBox="0 0 520 484" role="img" aria-labelledby="arch-title arch-desc">
+    <title id="arch-title">Every change passes one gate: a reviewed pull request</title>
+    <desc id="arch-desc">Claude, Dependabot and the owner feed changes through a single gate into three repositories. GitHub Actions then publishes container images, deploys the website and records signed build receipts.</desc>
+    <defs>
+      <marker id="arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path class="dg-arrow" d="M0 0L10 5L0 10z" />
+      </marker>
+    </defs>
+
+    <g>
+      <rect class="dg-box" x={cols[0]} y="8" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[0] + 12} y="34">Claude</text>
+      <text class="dg-note" x={cols[0] + 12} y="54">writes changes as</text>
+      <text class="dg-note" x={cols[0] + 12} y="70">its own bot account</text>
+    </g>
+    <g>
+      <rect class="dg-box" x={cols[1]} y="8" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[1] + 12} y="34">Dependabot</text>
+      <text class="dg-note" x={cols[1] + 12} y="54">proposes dependency</text>
+      <text class="dg-note" x={cols[1] + 12} y="70">updates every week</text>
+    </g>
+    <g>
+      <rect class="dg-box" x={cols[2]} y="8" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[2] + 12} y="34">You</text>
+      <text class="dg-note" x={cols[2] + 12} y="54">review, approve</text>
+      <text class="dg-note" x={cols[2] + 12} y="70">and merge</text>
+    </g>
+
+    <rect class="dg-gate" x="4" y="120" width="512" height="48" rx="8" />
+    <text class="dg-gate-text" x="260" y="149" text-anchor="middle">Every change: pull request, your approval, green checks</text>
+
+    <g>
+      <rect class="dg-box" x={cols[0]} y="200" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[0] + 12} y="226">Shared workflows</text>
+      <text class="dg-note" x={cols[0] + 12} y="246">platform-workflows</text>
+      <text class="dg-note" x={cols[0] + 12} y="262">used by every repo</text>
+    </g>
+    <g>
+      <rect class="dg-box" x={cols[1]} y="200" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[1] + 12} y="226">Website</text>
+      <text class="dg-note" x={cols[1] + 12} y="246">leat-site</text>
+      <text class="dg-note" x={cols[1] + 12} y="262">this site</text>
+    </g>
+    <g>
+      <rect class="dg-planned" x={cols[2]} y="200" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[2] + 12} y="226">Demo app</text>
+      <text class="dg-note" x={cols[2] + 12} y="246">demo-app (planned)</text>
+      <text class="dg-note" x={cols[2] + 12} y="262">a sample service</text>
+    </g>
+
+    <rect class="dg-box" x="4" y="304" width="512" height="72" rx="8" />
+    <text class="dg-name" x="16" y="330">GitHub Actions</text>
+    <text class="dg-note" x="16" y="350">runs the checks on every pull request;</text>
+    <text class="dg-note" x="16" y="366">after a merge, builds, signs and deploys</text>
+
+    <g>
+      <rect class="dg-box" x={cols[0]} y="408" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[0] + 12} y="434">Container images</text>
+      <text class="dg-note" x={cols[0] + 12} y="454">published only by</text>
+      <text class="dg-note" x={cols[0] + 12} y="470">the build pipeline</text>
+    </g>
+    <g>
+      <rect class="dg-box" x={cols[1]} y="408" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[1] + 12} y="434">Live website</text>
+      <text class="dg-note" x={cols[1] + 12} y="454">deployed only</text>
+      <text class="dg-note" x={cols[1] + 12} y="470">from main</text>
+    </g>
+    <g>
+      <rect class="dg-box" x={cols[2]} y="408" width={W} height="72" rx="8" />
+      <text class="dg-name" x={cols[2] + 12} y="434">Signed receipts</text>
+      <text class="dg-note" x={cols[2] + 12} y="454">prove where each</text>
+      <text class="dg-note" x={cols[2] + 12} y="470">release came from</text>
+    </g>
+
+    <g class="dg-line">
+      {cols.map((x) => <path d={`M${mid(x)} 80V120`} marker-end="url(#arch-arrow)" />)}
+      {cols.map((x) => <path d={`M${mid(x)} 168V200`} marker-end="url(#arch-arrow)" />)}
+      {cols.map((x) => <path d={`M${mid(x)} 272V304`} marker-end="url(#arch-arrow)" />)}
+      {cols.map((x) => <path d={`M${mid(x)} 376V408`} marker-end="url(#arch-arrow)" />)}
+      <path d={`M${cols[1]} 236H${cols[0] + W}`} marker-end="url(#arch-arrow)" />
+    </g>
+  </svg>
+  <figcaption>
+    <ol>
+      <li>Changes come from three places: Claude, working under its own bot account; Dependabot, proposing updates; and you.</li>
+      <li>Every change passes the same gate: a pull request, your approval and passing checks. Nobody can push straight to the main branch, including the owner.</li>
+      <li>Changes land in three repositories. The website calls the shared workflows rather than copying them. The demo app is planned.</li>
+      <li>GitHub Actions checks every pull request, and after a merge builds, signs and deploys.</li>
+      <li>The results are container images, the live website and signed receipts showing where each release came from.</li>
+    </ol>
+  </figcaption>
+</figure>

@@ -1,0 +1,73 @@
+---
+// Depicts: leat-site .github/workflows/pr.yml (ci, scan, lighthouse) and
+// main.yml (node-ci then pages-deploy), the default-branch ruleset and the
+// github-pages environment. Update this diagram in the same pull request as
+// any change to those.
+const x0 = 4, W = 300, cx = x0 + W / 2;
+const steps = [
+  { y: 4, name: "Change proposed", note: "a pull request from a branch" },
+  { y: 92, name: "Checks run", note: "build, tests, security scan, page quality" },
+  { y: 268, name: "Human approval", note: "a new push cancels it" },
+  { y: 364, name: "Built once", note: "the exact files that will ship" },
+  { y: 452, name: "Signed and verified", note: "a record of where it was built" },
+  { y: 540, name: "Deployed", note: "only from the main branch" },
+];
+---
+
+<figure class="diagram">
+  <svg viewBox="0 0 520 700" role="img" aria-labelledby="flow-title flow-desc">
+    <title id="flow-title">From pull request to live, with one human step</title>
+    <desc id="flow-desc">A proposed change runs automatic checks. Failures go back to be fixed. When everything passes, a person approves it, and the change is then built once, signed and verified, deployed from main and goes live.</desc>
+    <defs>
+      <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path class="dg-arrow" d="M0 0L10 5L0 10z" />
+      </marker>
+    </defs>
+
+    <rect class="dg-group" x="1" y="352" width="311" height="344" rx="8" />
+    <text class="dg-name" x="324" y="380">After the merge,</text>
+    <text class="dg-note" x="324" y="398">no human step</text>
+
+    {steps.map((s) => (
+      <g>
+        <rect class="dg-box" x={x0} y={s.y} width={W} height="56" rx="8" />
+        <text class="dg-name" x={x0 + 12} y={s.y + 24}>{s.name}</text>
+        <text class="dg-note" x={x0 + 12} y={s.y + 44}>{s.note}</text>
+      </g>
+    ))}
+
+    <polygon class="dg-box" points={`${cx - 76},204 ${cx},172 ${cx + 76},204 ${cx},236`} />
+    <text class="dg-name" x={cx} y="209" text-anchor="middle">All green?</text>
+
+    <rect class="dg-box" x="340" y="176" width="176" height="56" rx="8" />
+    <text class="dg-name" x="352" y="200">Fixed and pushed</text>
+    <text class="dg-note" x="352" y="220">checks run again</text>
+
+    <rect class="dg-gate" x={x0} y="628" width={W} height="56" rx="8" />
+    <text class="dg-name" x={x0 + 12} y="652">Live</text>
+    <text class="dg-note" x={x0 + 12} y="672">what was reviewed is what runs</text>
+
+    <g class="dg-line">
+      <path d={`M${cx} 60V92`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx} 148V172`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx} 236V268`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx} 324V364`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx} 420V452`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx} 508V540`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx} 596V628`} marker-end="url(#flow-arrow)" />
+      <path d={`M${cx + 76} 204H340`} marker-end="url(#flow-arrow)" />
+      <path d={`M428 176V120H${x0 + W}`} marker-end="url(#flow-arrow)" />
+    </g>
+    <text class="dg-note" x="282" y="196" text-anchor="middle">no</text>
+    <text class="dg-note" x={cx + 8} y="256">yes</text>
+  </svg>
+  <figcaption>
+    <ol>
+      <li>A change is proposed as a pull request from a branch.</li>
+      <li>Checks run automatically: build, tests, a security scan and a page quality check.</li>
+      <li>If anything fails, the change is fixed and pushed again, and the checks rerun.</li>
+      <li>When everything passes, a person approves it. Any later push cancels that approval.</li>
+      <li>After the merge, with no further human step, the site is built once, signed and verified, deployed from the main branch, and goes live.</li>
+    </ol>
+  </figcaption>
+</figure>

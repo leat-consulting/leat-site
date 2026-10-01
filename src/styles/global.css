@@ -7,6 +7,8 @@
   --accent-contrast: #ffffff;
   --border: #d9ddd9;
   --focus: #b3541e;
+  --accent-soft: #e6f0eb;
+  --line: #8a948e;
   --measure: 68ch;
   --radius: 6px;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -25,6 +27,8 @@
     --accent-contrast: #0e1a14;
     --border: #2e3430;
     --focus: #f0a070;
+    --accent-soft: #1d3329;
+    --line: #77827b;
   }
 }
 
@@ -80,3 +84,46 @@ p, li { max-width: var(--measure); }
 .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
 .footer-inner { padding-top: 2rem; padding-bottom: 2rem; color: var(--muted); }
 .footer-links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+
+section { margin-top: 3.5rem; }
+section:first-child { margin-top: 0; }
+.hero { padding: 1.5rem 0 1rem; }
+.hero h1 { max-width: 20ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 1.5rem; }
+.button-secondary { display: inline-block; padding: 0.65rem 1.15rem; border: 1px solid var(--accent); border-radius: var(--radius); color: var(--accent); text-decoration: none; font-weight: 600; }
+.button-secondary:hover { text-decoration: underline; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin: 0 0 0.5rem; }
+.cta { margin-top: 2.5rem; }
+
+.outcomes { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.5rem 2rem; }
+.outcomes li { border-top: 3px solid var(--accent); padding-top: 0.75rem; }
+.outcomes h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.outcomes p { margin: 0; color: var(--muted); }
+
+.steps { padding-left: 1.4rem; }
+.steps li { margin: 0.6rem 0; padding-left: 0.25rem; }
+
+table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--border); }
+th { font-weight: 600; background: var(--surface); }
+.table-wrap { overflow-x: auto; }
+
+.principles { list-style: none; padding: 0; counter-reset: principle; }
+.principles li { counter-increment: principle; position: relative; padding-left: 2.25rem; margin: 0.9rem 0; }
+.principles li::before { content: counter(principle); position: absolute; left: 0; top: 0.05rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--accent); color: var(--accent-contrast); font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; }
+
+/* Diagrams: inline SVG coloured by these classes, so they follow light and dark mode. */
+.diagram { margin: 2rem 0; }
+.diagram svg { display: block; width: 100%; max-width: 36rem; height: auto; font-family: inherit; }
+.diagram figcaption { margin-top: 1rem; max-width: var(--measure); color: var(--muted); font-size: 0.95rem; }
+.diagram figcaption ol { padding-left: 1.25rem; }
+.dg-title { fill: var(--text); font-weight: 600; font-size: 16px; }
+.dg-name { fill: var(--text); font-weight: 600; font-size: 14px; }
+.dg-note { fill: var(--muted); font-size: 12.5px; }
+.dg-box { fill: var(--bg); stroke: var(--line); stroke-width: 1.25; }
+.dg-gate { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.dg-gate-text { fill: var(--text); font-weight: 600; font-size: 13.5px; }
+.dg-group { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 6 4; }
+.dg-planned { fill: var(--bg); stroke: var(--line); stroke-width: 1.25; stroke-dasharray: 5 4; }
+.dg-line { fill: none; stroke: var(--line); stroke-width: 1.25; }
+.dg-arrow { fill: var(--line); }
