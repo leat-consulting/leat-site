@@ -19,17 +19,44 @@ const jsonLd = {
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
   <section class="band band--hero">
-    <span class="eyebrow">Secure software delivery</span>
-    <h1>Ship quickly, without the pipeline being your weakest point</h1>
+    <span class="eyebrow">Platform engineering for growing teams</span>
+    <h1>From laptop to production, done properly</h1>
     <p class="lead">
-      The systems that build and deploy your software can read your code, hold your cloud credentials and
-      change production. We secure them properly, in your own GitHub or GitLab, then hand everything over
-      for your team to own.
+      We set up the path your code takes to production: source control, CI/CD pipelines, cloud
+      infrastructure on AWS, and the access that connects them. Built in your own GitHub or GitLab and
+      cloud accounts, then handed over for your team to own.
     </p>
     <div class="actions">
       <a class="button" href={href("contact/")}>Talk to us</a>
-      <a class="button-secondary" href={href("how-we-build/")}>See how we build</a>
+      <a class="button-secondary" href={href("#packages")}>See the packages</a>
     </div>
+  </section>
+
+  <section aria-labelledby="path-heading">
+    <span class="eyebrow">What we do</span>
+    <h2 id="path-heading">Every step between a commit and a customer</h2>
+    <ol class="path">
+      <li>
+        <h3>Laptop</h3>
+        <p>Engineers and AI coding tools write changes, with the conventions and checks they need close at hand.</p>
+      </li>
+      <li>
+        <h3>Repository</h3>
+        <p>Pull or merge requests, review rules and branch protection, on GitHub or GitLab.</p>
+      </li>
+      <li>
+        <h3>Pipeline</h3>
+        <p>Shared CI/CD that builds, tests and checks every change the same way, in every repository.</p>
+      </li>
+      <li>
+        <h3>Cloud</h3>
+        <p>AWS accounts and infrastructure defined as code with Terraform or CloudFormation, reviewed like code.</p>
+      </li>
+      <li>
+        <h3>Production</h3>
+        <p>Deployed by pipelines using short-lived access (OIDC), so there are no long-lived keys to leak.</p>
+      </li>
+    </ol>
   </section>
 
   <section aria-labelledby="outcomes-heading">
@@ -37,20 +64,20 @@ const jsonLd = {
     <h2 id="outcomes-heading">What changes for your team</h2>
     <ul class="grid-4">
       <li class="outcome">
-        <h3>Fewer ways in</h3>
-        <p>Dependencies, pipelines and cloud access hardened against the supply-chain attacks that now hit companies of every size.</p>
+        <h3>Faster, repeatable releases</h3>
+        <p>One way to build, test and deploy, shared by every repository, instead of each team reinventing it.</p>
       </li>
       <li class="outcome">
-        <h3>Answers ready</h3>
-        <p>Clear evidence of how code is reviewed, built and released, for security questionnaires, audits and due diligence.</p>
+        <h3>Infrastructure you can read</h3>
+        <p>Cloud resources defined as code and changed through review, so you know what is running and why.</p>
       </li>
       <li class="outcome">
-        <h3>AI without the keys</h3>
-        <p>Use AI coding and review tools while a person still approves everything that reaches production.</p>
+        <h3>No keys lying around</h3>
+        <p>Pipelines reach the cloud with short-lived access, and AI tools and bots propose changes that people approve.</p>
       </li>
       <li class="outcome">
-        <h3>No slower shipping</h3>
-        <p>Checks run automatically on every change. Engineers keep working the way they do today.</p>
+        <h3>Ready when someone asks</h3>
+        <p>Clear answers on how software is reviewed, built and released, for customers, auditors and investors.</p>
       </li>
     </ul>
   </section>
