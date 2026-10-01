@@ -13,70 +13,92 @@ const site = "https://github.com/leat-consulting/leat-site/blob/b77884633dcac121
   title="How we build"
   description="How Leat Consulting's own delivery platform works: one reviewed gate for every change, automatic checks, signed builds, and the principles behind it."
 >
-  <h1>How we build</h1>
-  <p class="lead">
-    The systems that build and deploy software are now a favourite target, because they hold the keys to
-    production. This is how we protect our own, using the same setup we put in place for clients. All of
-    it is public.
-  </p>
+  <section class="band band--hero">
+    <span class="eyebrow">How we build</span>
+    <h1>One reviewed gate for every change</h1>
+    <p class="lead">
+      The systems that build and deploy software are now a favourite target, because they hold the keys to
+      production. This is how we protect our own, using the same setup we put in place for clients. All of
+      it is public.
+    </p>
+  </section>
 
-  <h2>One gate for every change</h2>
-  <p>
-    However a change starts, whether written by a person, by an AI tool or by an automatic update, it
-    reaches production only one way: through a pull request that passes its checks and is approved by a
-    person.
-  </p>
-  <Architecture />
+  <section aria-labelledby="gate-heading">
+    <span class="eyebrow">The architecture</span>
+    <h2 id="gate-heading">However a change starts, it reaches production one way</h2>
+    <p>
+      Whether a change is written by a person, by an AI tool or by an automatic update, it reaches production
+      only through a pull request that passes its checks and is approved by a person.
+    </p>
+    <Architecture />
+  </section>
 
-  <h2>From pull request to live</h2>
-  <p>
-    The only human step is the approval. Everything before it is checked automatically, and everything
-    after it happens by itself, so what was reviewed is exactly what goes live.
-  </p>
-  <Flow />
+  <section class="band band--tint" aria-labelledby="flow-heading">
+    <span class="eyebrow">The flow</span>
+    <h2 id="flow-heading">From pull request to live, with one human step</h2>
+    <p>
+      The only human step is the approval. Everything before it is checked automatically, and everything
+      after it happens by itself, so what was reviewed is exactly what goes live.
+    </p>
+    <Flow />
+  </section>
 
-  <h2>Principles</h2>
-  <ol class="principles">
-    <li><strong>Least privilege by default.</strong> Every automated job starts with read-only access and is given only what it needs.</li>
-    <li><strong>Know what you run.</strong> Third-party pipeline components are fixed to exact versions, allowed by name, and checked on every change.</li>
-    <li><strong>No long-lived secrets.</strong> Pipelines use short-lived credentials issued per run, so there is nothing lasting to steal.</li>
-    <li><strong>Automation proposes, people approve.</strong> AI tools and update bots open pull requests; they can never approve or merge them.</li>
-    <li><strong>Rules as code.</strong> Protection rules are written down, reviewed like code, and checked regularly so nobody can quietly weaken them.</li>
-  </ol>
+  <section aria-labelledby="principles-heading">
+    <span class="eyebrow">Principles</span>
+    <h2 id="principles-heading">Five rules we hold to</h2>
+    <ol class="principles">
+      <li><strong>Least privilege by default</strong> <span>Every automated job starts with read-only access and is given only what it needs.</span></li>
+      <li><strong>Know what you run</strong> <span>Third-party pipeline components are fixed to exact versions, allowed by name, and checked on every change.</span></li>
+      <li><strong>No long-lived secrets</strong> <span>Pipelines use short-lived credentials issued per run, so there is nothing lasting to steal.</span></li>
+      <li><strong>Automation proposes, people approve</strong> <span>AI tools and update bots open pull requests; they can never approve or merge them.</span></li>
+      <li><strong>Rules as code</strong> <span>Protection rules are written down, reviewed like code, and checked regularly so nobody can quietly weaken them.</span></li>
+    </ol>
+  </section>
 
-  <h2>What you need, and when</h2>
-  <p>Not every team needs everything here. We group it into three tiers.</p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th scope="col">Tier</th><th scope="col">What it covers</th><th scope="col">You need it when</th><th scope="col">In our repositories</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Start here</th>
-          <td>Pull requests and approval on the main branch, secret scanning that blocks leaked keys, automatic dependency updates, read-only pipeline permissions, checks on every pull request.</td>
-          <td>Always. They are cheap, and most teams are missing some of them.</td>
-          <td><a href={`${pw}/governance/rulesets/default-branch.json`}>branch rules</a>, <a href={`${site}/.github/workflows/pr.yml`}>pull request checks</a>, <a href={`${site}/.github/dependabot.yml`}>update settings</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Add next</th>
-          <td>Pipeline components fixed to exact versions and allowed by name, security scanning in CI, a separate identity for AI tools, short-lived cloud access.</td>
-          <td>When you depend on third-party pipeline components, use AI coding tools, or deploy to the cloud from CI.</td>
-          <td><a href={`${pw}/governance/actions-policy.json`}>allowed components</a>, <a href={`${pw}/.github/workflows/security-scan.yml`}>security scan</a>, <a href={`${pw}/bin/README.md`}>AI identity</a></td>
-        </tr>
-        <tr>
-          <th scope="row">For regulated teams</th>
-          <td>Signed and verified builds, releases that can never be altered, protection rules checked for drift.</td>
-          <td>When auditors, regulators or enterprise customers ask you to prove how your software was built.</td>
-          <td><a href={`${pw}/.github/workflows/pages-deploy.yml`}>signed deploys</a>, <a href={`${pw}/.github/workflows/container-build.yml`}>signed images</a>, <a href={`${pw}/governance/README.md`}>drift checks</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <section class="band band--tint" aria-labelledby="tiers-heading">
+    <span class="eyebrow">What you need, and when</span>
+    <h2 id="tiers-heading">Three tiers, not everything at once</h2>
+    <p>Not every team needs everything here. Start with the first tier and add the rest as you need it.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Tier</th><th scope="col">What it covers</th><th scope="col">You need it when</th><th scope="col">In our repositories</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Start here</th>
+            <td>Pull requests and approval on the main branch, secret scanning that blocks leaked keys, automatic dependency updates, read-only pipeline permissions, checks on every pull request.</td>
+            <td>Always. They are cheap, and most teams are missing some of them.</td>
+            <td><a href={`${pw}/governance/rulesets/default-branch.json`}>branch rules</a>, <a href={`${site}/.github/workflows/pr.yml`}>pull request checks</a>, <a href={`${site}/.github/dependabot.yml`}>update settings</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Add next</th>
+            <td>Pipeline components fixed to exact versions and allowed by name, security scanning in CI, a separate identity for AI tools, short-lived cloud access.</td>
+            <td>When you depend on third-party pipeline components, use AI coding tools, or deploy to the cloud from CI.</td>
+            <td><a href={`${pw}/governance/actions-policy.json`}>allowed components</a>, <a href={`${pw}/.github/workflows/security-scan.yml`}>security scan</a>, <a href={`${pw}/bin/README.md`}>AI identity</a></td>
+          </tr>
+          <tr>
+            <th scope="row">For regulated teams</th>
+            <td>Signed and verified builds, releases that can never be altered, protection rules checked for drift.</td>
+            <td>When auditors, regulators or enterprise customers ask you to prove how your software was built.</td>
+            <td><a href={`${pw}/.github/workflows/pages-deploy.yml`}>signed deploys</a>, <a href={`${pw}/.github/workflows/container-build.yml`}>signed images</a>, <a href={`${pw}/governance/README.md`}>drift checks</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Our own setup runs on GitHub, which most of our clients use. For teams on GitLab we build the same
+      patterns with GitLab's equivalents: CI/CD components, protected branches with merge request approvals,
+      and OIDC from GitLab to AWS.
+    </p>
+  </section>
 
-  <p>
-    Want this for your team? The <a href={href("secure-delivery/")}>Secure delivery setup</a> puts it in
-    place in your own repositories, or start with a <a href={href("delivery-review/")}>Delivery review</a>
-    to see where you stand.
-  </p>
+  <section aria-labelledby="next-heading">
+    <h2 id="next-heading">Want this for your team?</h2>
+    <p>
+      The <a href={href("secure-delivery/")}>Secure delivery setup</a> puts it in place in your own repositories,
+      or start with a <a href={href("delivery-review/")}>Delivery review</a> to see where you stand.
+    </p>
+    <div class="actions"><a class="button" href={href("contact/")}>Talk to us</a></div>
+  </section>
 </Base>

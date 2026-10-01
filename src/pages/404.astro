@@ -4,7 +4,10 @@ import { href } from "../lib";
 ---
 
 <Base title="Page not found" description="The page you asked for does not exist." canonical={false}>
-  <h1>Page not found</h1>
-  <p>The page you asked for does not exist or has moved.</p>
-  <p><a href={href("")}>Go to the home page</a></p>
+  <section class="band band--hero">
+    <span class="eyebrow">404</span>
+    <h1>Page not found</h1>
+    <p class="lead">The page you asked for does not exist or has moved.</p>
+    <div class="actions"><a class="button" href={href("")}>Go to the home page</a></div>
+  </section>
 </Base>
