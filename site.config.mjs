@@ -10,8 +10,18 @@ export default {
   indexable: false,
   description:
     "Leat Consulting sets up the path from laptop to production: source control, CI/CD on GitHub or GitLab, AWS infrastructure as code and secure access, handed over for your team to own.",
-  areaServed: ["London", "United Kingdom"],
+  // Where Leat is based and who it serves. Country only: no street address.
+  country: "GB",
+  areaServed: ["United Kingdom"],
+  founder: {
+    name: "Fraser Davidson",
+    jobTitle: "Founder and platform engineer",
+    linkedin: "https://www.linkedin.com/in/fraser-davidson-32a194b4/",
+  },
   github: "https://github.com/leat-consulting",
+  // Crawler policy, applied only once indexable is true (owner, 2026-10-05).
+  // search: AI search and user-request crawlers. training: AI training crawlers.
+  crawlers: { search: true, training: true },
   // Booking link and email are not set up yet. Pages show a holding line
   // until they are, and the build refuses to launch without them.
   bookingUrl: null,
