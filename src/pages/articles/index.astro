@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import { href } from "../../lib";
+import { breadcrumbs } from "../../schema";
 
 const articles = (await getCollection("articles", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
@@ -9,7 +10,7 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft)).so
 const fmt = new Intl.DateTimeFormat("en-GB", { dateStyle: "long" });
 ---
 
-<Base title="Articles" description="Practical writing on CI/CD security, GitHub Actions, GitLab CI/CD, software supply chains and AI code review.">
+<Base title="Articles" schema={[breadcrumbs([{ name: "Articles", path: "articles/" }])]} description="Practical writing on CI/CD security, GitHub Actions, GitLab CI/CD, software supply chains and AI code review.">
   <section class="band band--hero">
     <span class="eyebrow">Articles</span>
     <h1>Notes from building secure pipelines</h1>

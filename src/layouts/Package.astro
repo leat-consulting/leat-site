@@ -4,6 +4,8 @@
 import Base from "./Base.astro";
 import Icon from "../components/Icon.astro";
 import { href, packages } from "../lib";
+import { faqs } from "../faqs";
+import { breadcrumbs, faqPage, service } from "../schema";
 
 interface Props {
   slug: string;
@@ -16,9 +18,11 @@ interface Props {
 const { slug, title, description, lead, forWho } = Astro.props;
 const pkg = packages.find((p) => p.path === slug)!;
 const number = packages.indexOf(pkg) + 1;
+const questions = faqs[slug] ?? [];
+const schema = [service(pkg.name, slug, description), breadcrumbs([{ name: pkg.name, path: slug }]), faqPage(slug, questions)];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} schema={schema}>
   <section class="band band--hero">
     <span class="eyebrow">Package {number} of {packages.length}</span>
     <h1>{title}</h1>
@@ -28,6 +32,15 @@ const number = packages.indexOf(pkg) + 1;
   <div class="package">
     <div class="package-body">
       <slot />
+      <h2 id="faq">Common questions</h2>
+      <dl class="faq">
+        {questions.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
     <aside class="summary" aria-label="Summary">
       <Icon name={pkg.icon} />
