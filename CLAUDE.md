@@ -1,7 +1,7 @@
 # Leat Consulting: leat-site
 
 ## Context
-Leat Consulting builds secure delivery platforms for engineering teams. This
+Leat Consulting is a UK-based platform engineering consultancy: it sets up the path from laptop to production for engineering teams. This
 repository is the company website and the first public consumer of
 `platform-workflows`. It is public and part of the demo: treat every file as
 something a prospective client will read.
@@ -15,6 +15,7 @@ something a prospective client will read.
 - Diagrams on the How we build page (`src/components/diagrams/`) must match what exists in the public repos. Update a diagram in the same pull request as the change it depicts; each component lists the files it depicts in a comment.
 - The offer is three fixed-scope packages that end in a handover. Never offer or imply retainers, on-call, managed services or ongoing support; the tests enforce this.
 - Design: every colour, size and space comes from the tokens at the top of `src/styles/global.css` (light and dark). No one-off colours or sizes. Text-led pages, no hero images or animation. Check layout changes with desktop and phone screenshots before review.
+- Structured data comes only from `src/schema.ts` (emitted once per page by `Base.astro`); package FAQs come only from `src/faqs.ts`, which renders both the visible FAQ and its FAQPage data. Crawler policy lives in `site.config.mjs` and `src/robots.mjs`. Never hand-write JSON-LD in a page.
 - Prose: British English, measured tone, no exclamation marks, no em-dashes, no invented clients, testimonials, prices or metrics.
 
 ## Checks to run before committing

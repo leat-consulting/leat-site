@@ -1,25 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import { absolute, href, packages, site } from "../lib";
+import { href, packages, site } from "../lib";
+import { professionalService } from "../schema";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: site.name,
-  url: absolute(""),
-  description: site.description,
-  areaServed: site.areaServed.map((name) => ({ "@type": "Place", name })),
-  sameAs: [site.github],
-  knowsAbout: ["CI/CD security", "GitHub Actions", "GitLab CI/CD", "AWS", "Terraform", "AI code review"],
-};
 ---
 
-<Base title={site.name} description={site.description} preloadFont>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+<Base title={site.name} description={site.description} preloadFont schema={[professionalService()]}>
 
   <section class="band band--hero">
-    <span class="eyebrow">Platform engineering for growing teams</span>
+    <span class="eyebrow">UK-based platform engineering</span>
     <h1>From laptop to production, done properly</h1>
     <p class="lead">
       We set up the path your code takes to production: source control, CI/CD pipelines, cloud

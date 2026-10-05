@@ -2,11 +2,13 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import { href, packages } from "../lib";
+import { breadcrumbs } from "../schema";
 ---
 
 <Base
   title="Pricing"
   description="Every Leat Consulting package has a fixed scope and a fixed price, agreed in writing before work starts, and ends with a handover."
+  schema={[breadcrumbs([{ name: "Pricing", path: "pricing/" }])]}
 >
   <section class="band band--hero">
     <span class="eyebrow">Pricing</span>

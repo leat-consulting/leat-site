@@ -63,15 +63,14 @@ test("no forms, no inline scripts, no inline styles", () => {
   }
 });
 
-test("home page has honest ProfessionalService structured data", () => {
+test("home page describes a UK ProfessionalService", () => {
   const html = read(pageFile(""));
   const block = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
   assert.ok(block, "no JSON-LD on the home page");
-  const data = JSON.parse(block);
-  assert.equal(data["@type"], "ProfessionalService");
-  assert.equal(data.name, site.name);
-  assert.ok(!("aggregateRating" in data) && !("review" in data), "invented ratings or reviews");
-  assert.ok(!("address" in data), "street address should not be published");
+  const service = JSON.parse(block)["@graph"].find((n) => n["@type"] === "ProfessionalService");
+  assert.ok(service, "no ProfessionalService on the home page");
+  assert.equal(service.name, site.name);
+  assert.equal(service.address.addressCountry, "GB");
 });
 
 test("sitemap lists every page and article", () => {

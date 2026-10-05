@@ -9,16 +9,15 @@
   @font-face { font-family: Inter; src: url("../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
   body { background: #0d1411; color: #e6ece8; font-family: Inter, sans-serif; display: flex; flex-direction: column; justify-content: center; padding: 0 96px; box-sizing: border-box; }
-  .wordmark { display: inline-flex; align-items: baseline; font-weight: 750; font-size: 150px; line-height: 1; letter-spacing: -0.055em; }
-  .wm-prompt { color: #6fd3a8; font-weight: 700; margin-right: 0.22em; letter-spacing: 0; }
-  .wm-cursor { display: inline-block; width: 0.46em; height: 0.15em; margin-left: 0.14em; background: #6fd3a8; }
+  .wordmark { align-self: flex-start; display: inline-block; position: relative; padding-bottom: 0.3em; font-weight: 760; font-size: 150px; line-height: 1; letter-spacing: -0.06em; }
+  .wordmark svg { position: absolute; left: 0.02em; bottom: 0; width: calc(100% - 0.02em); height: auto; overflow: visible; }
   p { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; margin: 48px 0 0; max-width: 22em; line-height: 1.2; }
   .sub { font-size: 26px; font-weight: 500; color: #a5b3ab; margin-top: 20px; letter-spacing: 0; max-width: none; }
 </style>
 </head>
 <body>
-  <div class="wordmark"><span class="wm-prompt">&gt;</span>leat<span class="wm-cursor"></span></div>
+  <div class="wordmark">leat<svg viewBox="0 0 102 16"><path d="M6 8H96" stroke="#6fd3a8" stroke-width="2.2"/><circle cx="6" cy="8" r="4.2" fill="#0d1411" stroke="#6fd3a8" stroke-width="2.2"/><circle cx="36" cy="8" r="4.2" fill="#0d1411" stroke="#6fd3a8" stroke-width="2.2"/><circle cx="66" cy="8" r="4.2" fill="#0d1411" stroke="#6fd3a8" stroke-width="2.2"/><circle cx="96" cy="8" r="5.6" fill="#6fd3a8"/></svg></div>
   <p>From laptop to production, done properly.</p>
-  <p class="sub">Leat Consulting · platform engineering on GitHub, GitLab and AWS</p>
+  <p class="sub">Leat Consulting · UK-based platform engineering on GitHub, GitLab and AWS</p>
 </body>
 </html>

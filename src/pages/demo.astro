@@ -2,11 +2,13 @@
 import Base from "../layouts/Base.astro";
 
 const gh = "https://github.com/leat-consulting";
+import { breadcrumbs } from "../schema";
 ---
 
 <Base
   title="Demo"
   description="The public repositories behind Leat Consulting: reusable workflows, the governance that protects them, and the pull requests that built them."
+  schema={[breadcrumbs([{ name: "Demo", path: "demo/" }])]}
 >
   <section class="band band--hero">
     <span class="eyebrow">Demo</span>

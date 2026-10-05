@@ -126,10 +126,12 @@ h2 + .lead { margin-top: 0; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: var(--header-h); }
 .brand { display: inline-flex; align-items: center; color: var(--text); text-decoration: none; }
 .brand:hover { color: var(--text); }
-/* Wordmark: a terminal prompt, the name and a resting cursor. Text, so it stays crisp and themed. */
-.wordmark { display: inline-flex; align-items: baseline; font-weight: 750; font-size: 1.6rem; line-height: 1; letter-spacing: -0.055em; }
-.wm-prompt { color: var(--accent); font-weight: 700; margin-right: 0.22em; letter-spacing: 0; }
-.wm-cursor { display: inline-block; width: 0.46em; height: 0.15em; margin-left: 0.14em; background: var(--accent); }
+/* Wordmark: the name over a pipeline of four stages. Text plus SVG, themed by tokens. */
+.wordmark { display: inline-block; position: relative; padding-bottom: 0.3em; font-weight: 760; font-size: 1.55rem; line-height: 1; letter-spacing: -0.06em; }
+.wm-pipeline { position: absolute; left: 0.02em; bottom: 0; width: calc(100% - 0.02em); height: auto; overflow: visible; }
+.wm-line { stroke: var(--accent); stroke-width: 2.6; }
+.wm-stage { fill: var(--bg); stroke: var(--accent); stroke-width: 2.6; }
+.wm-live { fill: var(--accent); }
 .footer-about .wordmark { font-size: 1.5rem; }
 .nav-desktop { display: flex; align-items: center; gap: var(--s5); }
 .nav-desktop ul, .nav-menu ul { list-style: none; margin: 0; padding: 0; }
@@ -221,6 +223,12 @@ h2 + .lead { margin-top: 0; }
 .summary dt { font-size: var(--step--1); font-weight: 650; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: var(--s4); }
 .summary dd { margin: var(--s1) 0 0; }
 .summary .button { width: 100%; }
+
+/* FAQ on package pages */
+.faq { margin: 0; display: grid; gap: var(--s3); }
+.faq > div { border: 1px solid var(--border); border-radius: var(--r2); padding: var(--s4) var(--s5); background: var(--bg); }
+.faq dt { font-weight: 650; margin-bottom: var(--s1); }
+.faq dd { margin: 0; color: var(--muted); max-width: var(--measure); }
 
 /* tables */
 .table-wrap { overflow-x: auto; margin: var(--s6) 0; border: 1px solid var(--border); border-radius: var(--r3); }

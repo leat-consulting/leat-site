@@ -7,6 +7,7 @@ const articles = defineCollection({
     title: z.string().min(1),
     description: z.string().min(50).max(200),
     date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
     tags: z.array(z.string()).min(1),
     draft: z.boolean().default(false),
   }),

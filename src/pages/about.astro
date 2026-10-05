@@ -1,18 +1,20 @@
 ---
 import Base from "../layouts/Base.astro";
 import { href } from "../lib";
+import { breadcrumbs } from "../schema";
 ---
 
 <Base
   title="About"
-  description="Leat Consulting was founded by Fraser Davidson, a platform engineer with over twelve years in the industry, most of them inside large, regulated organisations."
+  description="Leat Consulting is a UK-based platform engineering consultancy founded by Fraser Davidson, a platform engineer with over twelve years in large, regulated organisations."
+  schema={[breadcrumbs([{ name: "About", path: "about/" }])]}
 >
   <section class="band band--hero">
     <span class="eyebrow">About</span>
     <h1>Founder-led, built on twelve years of platform work</h1>
     <p class="lead">
-      Leat Consulting was founded by Fraser Davidson, a platform engineer with over twelve years in the
-      industry, most of them inside large, regulated organisations: tier 1 banks, financial technology and
+      Leat Consulting is a UK-based platform engineering consultancy, founded by Fraser Davidson, a platform
+      engineer with over twelve years in the industry, most of them inside large, regulated organisations: tier 1 banks, financial technology and
       trading firms, global enterprises and the public sector.
     </p>
   </section>
@@ -25,7 +27,6 @@ import { href } from "../lib";
       cloud credentials to delivery that stands up to an audit.
     </p>
     <p>Leat brings that standard to teams that want it without building a platform team to get it.</p>
-    <p class="small">HashiCorp Certified Terraform Associate. Microsoft Certified Azure Administrator.</p>
   </section>
 
   <section class="band band--tint" aria-labelledby="work-heading">

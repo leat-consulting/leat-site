@@ -7,11 +7,13 @@ import { href } from "../lib";
 // Links point at exact commits, so they always show the files as described.
 const pw = "https://github.com/leat-consulting/platform-workflows/blob/0328c4b9e797d6a0fe1adb857bb02356c7b6000f";
 const site = "https://github.com/leat-consulting/leat-site/blob/b77884633dcac121635d729bbea4c13c9343054e";
+import { breadcrumbs } from "../schema";
 ---
 
 <Base
   title="How we build"
   description="How Leat Consulting's own delivery platform works: one reviewed gate for every change, automatic checks, signed builds, and the principles behind it."
+  schema={[breadcrumbs([{ name: "How we build", path: "how-we-build/" }])]}
 >
   <section class="band band--hero">
     <span class="eyebrow">How we build</span>
